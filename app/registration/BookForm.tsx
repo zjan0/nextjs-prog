@@ -19,7 +19,7 @@ return <form method="get">
     </div>
     <div>
     <a href="../">
-    <button  name="registration" type="button" onClick={onSubmit}>create song</button>
+    <button  name="registration" type="button" onClick={onSubmit}>registrate</button>
     </a>
     </div>
 </form>
