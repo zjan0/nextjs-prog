@@ -1,6 +1,16 @@
-export default function list()
+import Listing from "./src/Listing";
+//import Listing from "./Listing";
+/*export default*/ function list()
 {
+    return <>
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <Listing />
     <div>
-        <h1>list</h1>
+            <a href="../">back</a>
+        </div>
     </div>
+    </div>
+    </>
 }
+export default list
