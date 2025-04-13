@@ -5,8 +5,19 @@ export default function BookForm()
 {
     const[username,SetUsername]=useState("")
     const[password,SetPassword]=useState("")
+    const[error,setError]=useState("")
 const onSubmit=()=>{
-    registrate(username,password)
+    if(!username||!password)
+    {
+        setError("missing info");
+    }
+    else
+    {
+        setError("right info");
+        registrate(username,password)
+        return;
+        
+    }
 }
 return <form method="get">
     <div>
@@ -17,10 +28,17 @@ return <form method="get">
         <label>password</label>
         <input type="text" value={password} onChange={e => SetPassword(e.target.value)}></input>
     </div>
+    {error&&(<div>{error}</div>)}
     <div>
-    <a href="../">
+    {error&&(<button  name="registration" type="button" onClick={onSubmit}>registrate</button>)}
+    {!error&&(
     <button  name="registration" type="button" onClick={onSubmit}>registrate</button>
-    </a>
+    )}
     </div>
 </form>
 }
+/*<a href="../">
+    <button  name="registration" type="button" onClick={onSubmit}>registrate</button>
+    </a>*/
+    /*{error&&(<button  name="registration" type="button" onClick={onSubmit}>registrate</button>)}
+    {!error&&(<button  name="registration" type="button" onClick={onSubmit}>registrate</button>)}*/

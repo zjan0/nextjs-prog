@@ -1,8 +1,46 @@
 import NextAuth from "next-auth/next";
+import {PrismaClient} from '@prisma/client'
 import bcrypt from "bcrypt";
 import CredentialsProvider from "next-auth/providers/credentials";
-import Login from "../../../login/page";
-export const authOptions={
+const prisma=new PrismaClient();
+const authOptions={
+  providers:[
+    CredentialsProvider({
+      name:"credentials",
+      credentials:{},
+      async authorize(credentials)
+      {
+        const{usernames,passwords}=credentials;
+        console.log(passwords)
+        const user = await prisma.account.findFirst({
+          where: { account_username: 'abc' },
+        });
+        if(!user)
+        {
+          return null;
+        }
+        const matchingpassword=await bcrypt.compare("passwords",user.account_password);
+        //const matchingpassword=await bcrypt.compare(passwords,user.account_password);
+        if(!matchingpassword)
+        {
+          return null;
+        }
+        return user;
+        /*const user = await prisma.account.findUnique({
+          where: { username: credentials?.username },
+        });*/
+      },
+    }),
+  ],
+  session:{
+    strategy:"jwt",
+  },
+  secret:process.env.NEXTAUTH_SECRET,
+  pages:{signIn:"login",}
+};
+const handler=NextAuth(authOptions);
+export{handler as GET,handler as POST};
+/*export const authOptions={
     providers: [
         CredentialsProvider({
             credentials: {username:{label: "name", type: "text"}, password: { label: "Password", type: "password" },},
@@ -25,7 +63,7 @@ export const authOptions={
     ]
 }
 export const handler=NextAuth(authOptions);
-export{handler as GET,handler as POST};
+export{handler as GET,handler as POST};*/
 /*export default function randomvaluessfdsjf()
 {
   const authOptions={
@@ -51,4 +89,11 @@ export{handler as GET,handler as POST};
         })
     ]
 }
-}*/
+}*//*const user = await prisma.account.findUnique({
+          where: { username: 'abc' },
+        });*/
+        /*const user = await prisma.account.findUnique({
+          where: {
+            email: 'alice@prisma.io',
+          },
+        });*/
