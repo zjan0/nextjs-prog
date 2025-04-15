@@ -14,7 +14,6 @@ export default function PagesMenu()
     <h1>not signed</h1>
         <a href="login">login</a>
         <a href="registration">registrate</a>
-        <button onClick={()=>signIn()}>SignIn</button>
         </>
 }
 //<button onClick={()=>signOut()}>SignOut</button>

@@ -31,7 +31,6 @@ import {useState} from "react";
 import {signIn,signOut,useSession} from "next-auth/react";
 export default function Login()
 {
-    const{data: session}=useSession();
     const[username,SetUsername]=useState("")
     const[password,SetPassword]=useState("")
     const[error,setError]=useState("")
@@ -42,12 +41,15 @@ const onSubmit=async()=>{
     }
     else
     {
-        const rightvalue= await signIn("credentials",{username,password})
-        setError("right info");
-        if(session)
+        //await signIn("credentials",{username,password})
+        console.log(username,password);
+        const rightinfo=await signIn("credentials",{username,password})
+        /*if(rightinfo)
         {
-            console.log("session");
+            session?.user;
         }
+        else{session?.expires}*/
+        setError("right info");
     }
 }
 return <form method="get">
@@ -69,7 +71,7 @@ return <form method="get">
     )}
     </div>
     <div>
-            <a href="registration"><button name="login">registrate</button></a>
+    <a href="registration">registrate</a>
         </div>
         <div>
             <a href="../">back</a>

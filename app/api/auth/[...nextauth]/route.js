@@ -10,33 +10,42 @@ const authOptions={
       credentials:{},
       async authorize(credentials)
       {
-        const{usernames,passwords}=credentials;
-        console.log(passwords)
+        const{username,password}=credentials;
+        console.log(username,password,credentials)
         const user = await prisma.account.findFirst({
-          where: { account_username: 'abc' },
+          where: { account_username: username },
         });
-        if(!user)
+        /*if(!user)
         {
           return null;
-        }
-        const matchingpassword=await bcrypt.compare("passwords",user.account_password);
+        }*/
+        const matchingpassword=await bcrypt.compare(password,user.account_password);
+
         //const matchingpassword=await bcrypt.compare(passwords,user.account_password);
-        if(!matchingpassword)
+        /*if(!matchingpassword)
         {
           return null;
         }
-        return user;
+          return user;*/
+        if(matchingpassword&&user)
+        {
+          return user;
+        }
+        else
+        {
+          return null;
+        }
         /*const user = await prisma.account.findUnique({
           where: { username: credentials?.username },
         });*/
       },
     }),
   ],
-  session:{
+  /*session:{
     strategy:"jwt",
   },
   secret:process.env.NEXTAUTH_SECRET,
-  pages:{signIn:"login",}
+  pages:{signIn: "/api/auth/signin",}*/
 };
 export const handler=NextAuth(authOptions);
 export{handler as GET,handler as POST};
