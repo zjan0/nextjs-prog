@@ -28,7 +28,7 @@
 "use client"
 
 import {useState} from "react";
-import {signIn,signOut,useSession} from "next-auth/react";
+import {signIn} from "next-auth/react";
 export default function Login()
 {
     const[username,SetUsername]=useState("")
@@ -43,7 +43,7 @@ const onSubmit=async()=>{
     {
         //await signIn("credentials",{username,password})
         console.log(username,password);
-        const rightinfo=await signIn("credentials",{username,password})
+        await signIn("credentials",{username,password})
         /*if(rightinfo)
         {
             session?.user;

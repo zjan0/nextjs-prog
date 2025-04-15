@@ -1,5 +1,5 @@
 "use client"
-import {signIn,signOut,useSession} from "next-auth/react";
+import {signOut,useSession} from "next-auth/react";
 export default function PagesMenu()
 {
     const{data: session}=useSession();
