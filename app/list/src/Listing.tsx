@@ -1,9 +1,9 @@
 import {PrismaClient} from '@prisma/client'
 //import song from '../../[song]/page'
-import Link from 'next/link'
+//import Link from 'next/link'
 //import Links from './[song]/Links';
-import Links from './Original'
-import Songs from '../../songtest/page'
+//import Links from './Original'
+//import Songs from '../../songtest/page'
 //const[username,SetUsername]=useState("")
 const prisma=new PrismaClient();
 export default async function Listing()
@@ -20,11 +20,13 @@ export default async function Listing()
     {val.length === 0 && <strong>song list is empty</strong>}
         {val.length > 0 && <ul>
             {val.map((item, idx) => {
-                //song(item.song_name)
+                //song(item.song_name) <Links val={item.song_name} />
                 return <li key={idx}>
                     {item.id}
                     {" "}
-                    <Links val={item.song_name} />
+                    <a href={item.song_name}>
+                        {item.song_name}
+                    </a>
                     {" "}
                     {item.song_author}
                     {" "}
@@ -36,11 +38,11 @@ export default async function Listing()
         </ul>}
     </>
 }
-export async function link()
+/*export async function link()
 {
     const val=await prisma.songs.findMany({take:10000000});
     return val;
-}
+}*/
 
 
     

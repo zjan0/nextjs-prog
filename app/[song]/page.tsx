@@ -1,6 +1,6 @@
 'use server'
 import Songpage from './Songpage';
-import Params from './params'
+//import Params from './params'
 //import { useParams } from 'next/navigation'
 //import Songs from '../../[song]/page'
 import {PrismaClient} from '@prisma/client'

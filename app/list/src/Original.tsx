@@ -1,5 +1,5 @@
-'use client'
-import Songs from '../../[song]/page'
+/*'use client'
+//import Songs from '../../[song]/page'
 export default function Nav({val}:any)
 {
     return<>
@@ -17,4 +17,4 @@ function invalidate(value:any)
         //Listing(value);
         //Listing(value);
         //console.log(value.song_name)
-    }
+    }*/
