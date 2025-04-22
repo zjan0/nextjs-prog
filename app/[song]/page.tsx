@@ -5,10 +5,11 @@
 //import Songs from '../../[song]/page'
 import {PrismaClient} from '@prisma/client'
 import { Params } from 'next/dist/server/request/params';
-export default async function Nav({ params}:  { params: Params }){
+export type paramsType = Promise<{ song: string }>;
+export default async function Nav(props: { params: paramsType }){
   //const {song} = useParams();
-  console.log(params);
-  const {song}=await params;
+  //console.log(params);
+  const { song } = await props.params;
   console.log(song);
   const prisma=new PrismaClient();
   const values=await prisma.songs.findFirst({where:{song_name:song?.toString()}});
