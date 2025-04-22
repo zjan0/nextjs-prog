@@ -4,7 +4,7 @@
 //import { useParams } from 'next/navigation'
 //import Songs from '../../[song]/page'
 import {PrismaClient} from '@prisma/client'
-import { Params } from 'next/dist/server/request/params';
+//import { Params } from 'next/dist/server/request/params';
 export type paramsType = Promise<{ song: string }>;
 export default async function Nav(props: { params: paramsType }){
   //const {song} = useParams();
