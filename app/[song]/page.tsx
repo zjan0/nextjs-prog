@@ -15,12 +15,12 @@ export default async function Nav(params:any){
   return<>
   <Songpage values={values} />
   </>
+}
 //const param=Params(); <Songpage val={song} />
 //var params=param;
 //console.log(param)
 //const prisma=new PrismaClient();
 //Songpage(param)
-}
   //console.log(song);
    /* console.log("testing value");
     console.log(value);

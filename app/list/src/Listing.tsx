@@ -5,7 +5,7 @@ import {PrismaClient} from '@prisma/client'
 //import Links from './Original'
 //import Songs from '../../songtest/page'
 //const[username,SetUsername]=useState("")
-const prisma=new PrismaClient();
+//const prisma=new PrismaClient();
 export default async function Listing()
 {
     //const val=await link();
