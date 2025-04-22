@@ -19,6 +19,6 @@ export async function creation(name:string,author:string,type:string)
             data:{published:true},
         })*/
     
-    const val=prisma.songs.findMany({take:10});
-    console.log(val);
+    //const val=prisma.songs.findMany({take:10});
+    //console.log(val);
 }

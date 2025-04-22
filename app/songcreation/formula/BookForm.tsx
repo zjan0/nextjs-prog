@@ -9,7 +9,7 @@ export default function BookForm () {
     const [type,setType]=useState("")
 
 const onSubmit=()=>{ 
-    console.log(name)
+    //console.log(name)
     creation(name,author,type)
     return
 }
