@@ -4,17 +4,27 @@ import Songpage from './Songpage';
 //import { useParams } from 'next/navigation'
 //import Songs from '../../[song]/page'
 import {PrismaClient} from '@prisma/client'
-export default async function Nav(params:any){
+export default async function Nav({ params}: { params: { song: string }}){
   //const {song} = useParams();
   console.log(params);
-  const {song}=await params.params;
+  const {song}=await params;
   console.log(song);
   const prisma=new PrismaClient();
   const values=await prisma.songs.findFirst({where:{song_name:song}});
   console.log(values);
-  return<>
+  /*return<>
   <Songpage values={values} />
-  </>
+  </>*/
+  return<>
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div>testing</div>
+    <div>song name: {values?.song_name}</div>
+    <div>song author: {values?.song_author}</div>
+    <div>song type: {values?.song_type}</div>
+    <a href="../">back</a>
+    </div></div>
+    </>
 }
 //const param=Params(); <Songpage val={song} />
 //var params=param;

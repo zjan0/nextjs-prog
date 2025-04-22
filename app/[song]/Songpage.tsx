@@ -2,6 +2,7 @@
 export default function Songpage({values}:any)
 {
     console.log("testing")
+    console.log(values);
     console.log(values.song_name);
     //const {val}=value;
     //console.log(value);
