@@ -10,10 +10,10 @@ export default async function Nav(props: { params: paramsType }){
   //const {song} = useParams();
   //console.log(params);
   const { song } = await props.params;
-  console.log(song);
+  //console.log(song);
   const prisma=new PrismaClient();
   const values=await prisma.songs.findFirst({where:{song_name:song?.toString()}});
-  console.log(values);
+  //console.log(values);
   /*return<>
   <Songpage values={values} />
   </>*/

@@ -41,7 +41,7 @@ const onSubmit=async()=>{
     else
     {
         //await signIn("credentials",{username,password})
-        console.log(username,password);
+        //console.log(username,password);
         await signIn("credentials",{username,password})
         /*if(rightinfo)
         {

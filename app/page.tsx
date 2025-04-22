@@ -1,14 +1,14 @@
 import Image from "next/image";
-import {PrismaClient} from '@prisma/client'
+//import {PrismaClient} from '@prisma/client'
 import PagesMenu from "./PagesMenu";
 export default async function Home() {
   //const prisma=new PrismaClient(); 
     //const val=await prisma.songs.findMany({take:20});
     //console.log(val);
     //Database();
-      const prisma=new PrismaClient(); 
-      const val=await prisma.songs.findMany({take:10})
-      console.log(val);
+      //const prisma=new PrismaClient(); 
+      //const val=await prisma.songs.findMany({take:10})
+      //console.log(val);
       //const val=await prisma.songs.findMany({take:20});
       //console.log(val);
     //main();
