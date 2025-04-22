@@ -26,7 +26,6 @@
         
 }*/
 "use client"
-
 import {useState} from "react";
 import {signIn} from "next-auth/react";
 export default function Login()
@@ -65,10 +64,8 @@ return <form method="get">
     </div>
     {error&&(<div>{error}</div>)}
     <div>
-    {error&&(<button  name="registration" type="button" onClick={onSubmit}>login</button>)}
-    {!error&&(
-    <button  name="registration" type="button" onClick={onSubmit}>login</button>
-    )}
+    {error&&(<button  name="login" type="button" onClick={onSubmit}>login</button>)}
+    {!error&&(<button  name="login" type="button" onClick={onSubmit}>login</button>)}
     </div>
     <div>
     <a href="registration">registrate</a>
@@ -79,3 +76,8 @@ return <form method="get">
     </div></div>
 </form>
 }
+/*<a href="../">
+    <button  name="login" type="button" onClick={onSubmit}>login</button>
+    </a>*/
+    /*{error&&(<button  name="login" type="button" onClick={onSubmit}>login</button>)}
+    {!error&&(<button  name="login" type="button" onClick={onSubmit}>login</button>)}*/

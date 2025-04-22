@@ -7,8 +7,10 @@ export default async function Home() {
     //console.log(val);
     //Database();
       const prisma=new PrismaClient(); 
-      const val=await prisma.songs.findMany({take:20});
+      const val=await prisma.songs.findMany({take:10})
       console.log(val);
+      //const val=await prisma.songs.findMany({take:20});
+      //console.log(val);
     //main();
    /* main()
   .then(async()=>{
@@ -25,9 +27,7 @@ export default async function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
       <PagesMenu />
-        <a href="list">list</a>
         <a href="[song]">aa</a>
-        <a href="songcreation/formula">song creation</a>
         <Image
           className="dark:invert"
           src="/next.svg"

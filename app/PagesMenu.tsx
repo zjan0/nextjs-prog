@@ -7,14 +7,18 @@ export default function PagesMenu()
     {
         return(<>
         <h1>signed in</h1>
+        <a href="songcreation/formula">song creation</a>
+        <a href="list">list</a>
         <button onClick={()=>signOut()}>signout</button>
         </>)
     }
     return<>
     <h1>not signed</h1>
-        <a href="login">login</a>
-        <a href="registration">registrate</a>
-        </>
+    <a href="list">list</a>
+    <a href="login">login</a>
+    <a href="registration">registrate</a>
+    </>
 }
+/*<a href="list">list</a>*/
 //<button onClick={()=>signOut()}>SignOut</button>
 //<button onClick={()=>signIn()}>SignIn</button>
