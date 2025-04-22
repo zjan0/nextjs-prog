@@ -1,4 +1,4 @@
-'use client'
+/*'use client'
 export default function Songpage({values}:any)
 {
     console.log("testing")
@@ -21,4 +21,4 @@ export default function Songpage({values}:any)
     <a href="../">back</a>
     </div></div>
     </>
-}
+}*/
