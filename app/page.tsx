@@ -1,7 +1,7 @@
 import Image from "next/image";
 //import {PrismaClient} from '@prisma/client'
-//import PagesMenu from "./PagesMenu";
-export default async function Home() {
+import PagesMenu from "./PagesMenu";
+export default function Home() {
   //const prisma=new PrismaClient(); 
     //const val=await prisma.songs.findMany({take:20});
     //console.log(val);
@@ -20,13 +20,13 @@ export default async function Home() {
   /*.catch(async(e)=>{
     console.error(e);
     await prisma.$disconnect();
-    process.exit(1); <PagesMenu />
+    process.exit(1); 
   })*/
  //;
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-      
+      <PagesMenu />
         <a href="[song]">aa</a>
         <Image
           className="dark:invert"

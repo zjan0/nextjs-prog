@@ -1,4 +1,4 @@
-/*"use client"
+"use client"
 import {signOut,useSession} from "next-auth/react";
 export default function PagesMenu()
 {
@@ -18,7 +18,7 @@ export default function PagesMenu()
     <a href="login">login</a>
     <a href="registration">registrate</a>
     </>
-}*/
+}
 /*<a href="list">list</a>*/
 //<button onClick={()=>signOut()}>SignOut</button>
 //<button onClick={()=>signIn()}>SignIn</button>
