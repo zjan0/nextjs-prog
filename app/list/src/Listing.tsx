@@ -1,4 +1,4 @@
-import {PrismaClient} from '@prisma/client'
+import {PrismaClient, songs} from '@prisma/client'
 //import song from '../../[song]/page'
 //import Link from 'next/link'
 //import Links from './[song]/Links';
@@ -10,7 +10,7 @@ export default async function Listing()
 {
     //const val=await link();
     const prisma=new PrismaClient();
-    const val=await prisma.songs.findMany({take:10000000});
+    const val:songs[]=await prisma.songs.findMany({take:10000000});
     // /*<Songs val={val} />*/
     /*return(
         <Links val={val} />
