@@ -1,5 +1,5 @@
 "use client"
-import {getSession, useSession} from "next-auth/react";
+import {useSession} from "next-auth/react";
 import {addFavorites, Isnull} from "./AddFavorites"
 import { useEffect, useState } from "react";
 

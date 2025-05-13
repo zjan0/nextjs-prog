@@ -1,4 +1,4 @@
-import Image from "next/image";
+//import Image from "next/image";
 //import {PrismaClient} from '@prisma/client'
 import PagesMenu from "./PagesMenu";
 export default function Home() {
