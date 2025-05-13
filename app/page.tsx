@@ -28,7 +28,10 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
       <PagesMenu />
         <a href="[song]">aa</a>
-        <Image
+        </main>
+        </div>
+  )
+        /*<Image
           className="dark:invert"
           src="/next.svg"
           alt="Next.js logo"
@@ -121,5 +124,5 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  );
+  );*/
 }

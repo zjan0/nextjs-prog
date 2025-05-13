@@ -3,8 +3,10 @@ import {PrismaClient} from '@prisma/client'
 import bcrypt from "bcrypt";
 import CredentialsProvider from "next-auth/providers/credentials";
 const prisma=new PrismaClient();
-const authOptions={
-  providers:[
+const authOptions=
+{
+  providers:
+  [
     CredentialsProvider({
       name:"credentials",
       credentials:{},
@@ -27,6 +29,7 @@ const authOptions={
           return null;
         }
           return user;*/
+        console.log(user);
         if(matchingpassword&&user)
         {
           return user;
@@ -41,6 +44,45 @@ const authOptions={
       },
     }),
   ],
+  callbacks:
+  {
+    /*async jwt({token,account,profile})
+    {
+      if (account) {
+      token.accessToken = account.access_token;
+      token.id = profile.id;
+    }
+    return token;
+    },*/
+    async jwt({token,user})
+    {
+      console.log("test2");
+      console.log(user);
+      if(user)
+      {
+      const{account_username/*,id*/}=user;
+      console.log(account_username);
+      token.name=account_username;
+      //token.id=id;
+      }
+      console.log(token);
+      return token;
+    },
+    async session({session, token})
+    {
+      console.log("testing value");
+      console.log(token);
+      session.user.name=token.name;
+      //session.user.id=token.id;
+      console.log(session);
+      return session;
+    }
+    /*session:()=>
+    async function()
+    {
+      return session;
+    }*/
+  }
   /*session:{
     strategy:"jwt",
   },

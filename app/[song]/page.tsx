@@ -1,9 +1,10 @@
-'use server'
+"use server"
 //import Songpage from './Songpage';
 //import Params from './params'
 //import { useParams } from 'next/navigation'
 //import Songs from '../../[song]/page'
 import {PrismaClient} from '@prisma/client'
+import Favorites from './Favorites';
 //import { Params } from 'next/dist/server/request/params';
 export type paramsType = Promise<{ song: string }>;
 export default async function Nav(props: { params: paramsType }){
@@ -25,6 +26,7 @@ export default async function Nav(props: { params: paramsType }){
     <div>song author: {values?.song_author}</div>
     <div>song type: {values?.song_type}</div>
     <a href="../">back</a>
+    <Favorites val={values?.song_name} />
     </div></div>
     </>
 }
