@@ -25,13 +25,13 @@ export default function Favorites(value:any)
             setNull(isitnull);
             console.log("testing__")
             console.log(isnull);
-
+          })()
+        },[])
   /*const username=session?.user?.name;
       const data=await OwnList(username);
       setValue(data);
       console.log(data);*/
-          })()
-          },[])
+          
   /*const Something=async()=>{
   const isnull=await Isnull(val,username);
   console.log(isnull);
