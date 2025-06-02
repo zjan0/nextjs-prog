@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 const username=session?.user?.name;
     const data=await OwnList(username);
     setValue(data);
-    console.log(data);
+    //console.log(data);
         })()
 /*const username=session?.user?.name;
     const data=OwnList(username);
@@ -39,7 +39,8 @@ const username=session?.user?.name;
                     {item.song_author}
                     {" "}
                     {item.song_type}
-                    
+                    {" "}
+                    {item._count.likaccounts}
                 </li>
                 
             })}

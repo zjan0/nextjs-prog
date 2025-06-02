@@ -7,7 +7,8 @@ import {PrismaClient} from '@prisma/client'
 import Favorites from './Favorites';
 //import { Params } from 'next/dist/server/request/params';
 export type paramsType = Promise<{ song: string }>;
-export default async function Nav(props: { params: paramsType }){
+export default async function Nav(props: { params: paramsType })
+{
   //const {song} = useParams();
   //console.log(params);
   const { song } = await props.params;

@@ -3,9 +3,9 @@ import {signOut,useSession} from "next-auth/react";
 export default function PagesMenu()
 {
     const{data: session}=useSession();
-    console.log("testing");
-    console.log(session);
-    console.log();
+    //console.log("testing");
+    //console.log(session);
+    //console.log();
     if(session)
     {
         return(<>

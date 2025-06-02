@@ -19,3 +19,166 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+li {
+  background-color: #544c4c;
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+li a {
+  color: #e6e9ed;
+  text-decoration: none;
+  font-weight: 600;
+
+  white-space: normal;       /* allow text to wrap */
+  word-wrap: break-word;     /* break long words if needed */
+  max-width: 100%;           /* prevent overflow */
+  display: inline-block;     /* ensures white-space works properly */
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+li span.likes {
+  margin-left: auto;
+  background-color: #e1f5fe;
+  color: #0277bd;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+form {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+form div {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+form input[type="text"] {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus {
+  border-color: #0070f3;
+  outline: none;
+}
+
+form button {
+  background-color: #0070f3;
+  color: white;
+  padding: 10px 15px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #005bb5;
+}
+
+form a {
+  text-decoration: none;
+  display: inline-block;
+}
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #b1abab;        /* Dark gray for good readability */
+  margin-bottom: 20px;
+  font-weight: 700;      /* Bold */
+  font-size: 2.5rem;     /* Larger font size */
+  letter-spacing: 1px;   /* Slight spacing between letters */
+  text-transform: uppercase;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Links styled as buttons */
+a {
+  display: inline-block;
+  margin: 8px 12px;
+  padding: 10px 18px;
+  background-color: #0070f3;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #005bb5;
+}
+
+/* Signout button styling */
+button {
+  margin: 8px 12px;
+  padding: 10px 18px;
+  background-color: #e00;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #a00;
+}
+div {
+  color: #a8b9e0;              /* text color */
+  font-size: 18px;          /* font size */
+  font-weight: 600;         /* font weight (boldness) */
+  font-family: Arial, sans-serif;  /* font family */
+  text-align: center;       /* text alignment */
+  line-height: 1.5;         /* line height for spacing */
+  text-transform: uppercase; /* make text uppercase */
+  letter-spacing: 2px;      /* space between letters */
+}

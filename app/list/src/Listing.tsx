@@ -10,7 +10,7 @@ export default async function Listing()
 {
     //const val=await link();
     const prisma=new PrismaClient();
-    const val:songs[]=await prisma.songs.findMany({take:10000000});
+    const val/*:songs[]*/=await prisma.songs.findMany({take:10000000,include:{_count:{select:{likaccounts:true}}}});
     // /*<Songs val={val} />*/
     /*return(
         <Links val={val} />
@@ -31,7 +31,8 @@ export default async function Listing()
                     {item.song_author}
                     {" "}
                     {item.song_type}
-                    
+                    {" "}
+                    {item._count.likaccounts}
                 </li>
                 
             })}

@@ -5,7 +5,6 @@ export async function addFavorites(val:string,username:any)
 {
     //const{data: session}=useSession();
     const prisma=new PrismaClient();
-    
     const value=await prisma.songs.findFirst({where:{song_name:val,accounts:{some:{account_username: username}}}});//session?.user?.name
     if(value==null)
     {
@@ -40,10 +39,12 @@ export async function addFavorites(val:string,username:any)
             ,where:{song_name:val}
         })*/
 }
-export async function Isnull(val:string,username:any)
+export async function Isfavnull(val:string,username:any)
 {
     const prisma=new PrismaClient();
     const value=await prisma.songs.findFirst({where:{song_name:val,accounts:{some:{account_username: username}}}});
+    console.log("favorite");
+    console.log(value);
     return value;
 }
 /*'use client'

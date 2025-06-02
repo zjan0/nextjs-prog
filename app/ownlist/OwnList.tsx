@@ -5,9 +5,9 @@ export default async function OwnList(username:any)
 {
     //username="username";
     //const{data: session}=useSession();
-    console.log(username);
+    //console.log(username);
     const prisma=new PrismaClient();
-    const val:songs[]=await prisma.songs.findMany({take:100000,where:{accounts:{some:{account_username: username}/*session?.user?.name*/}}});
+    const val/*:songs[]*/=await prisma.songs.findMany({take:100000,include:{_count:{select:{likaccounts:true}}},where:{accounts:{some:{account_username: username}/*session?.user?.name*/}}});
     return val;
     /*return<>
     {val.length === 0 && <strong>song list is empty</strong>}

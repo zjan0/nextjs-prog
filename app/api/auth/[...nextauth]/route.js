@@ -56,25 +56,25 @@ const authOptions=
     },*/
     async jwt({token,user})
     {
-      console.log("test2");
-      console.log(user);
+      //console.log("test2");
+      //console.log(user);
       if(user)
       {
       const{account_username/*,id*/}=user;
-      console.log(account_username);
+      //console.log(account_username);
       token.name=account_username;
       //token.id=id;
       }
-      console.log(token);
+      //console.log(token);
       return token;
     },
     async session({session, token})
     {
-      console.log("testing value");
-      console.log(token);
+      //console.log("testing value");
+      //console.log(token);
       session.user.name=token.name;
       //session.user.id=token.id;
-      console.log(session);
+      //console.log(session);
       return session;
     }
     /*session:()=>
