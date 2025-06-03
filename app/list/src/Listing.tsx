@@ -1,4 +1,4 @@
-import {PrismaClient, songs} from '@prisma/client'
+import {PrismaClient/*, songs*/} from '@prisma/client'
 //import song from '../../[song]/page'
 //import Link from 'next/link'
 //import Links from './[song]/Links';

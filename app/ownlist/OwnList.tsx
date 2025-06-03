@@ -1,6 +1,6 @@
 //import {useSession} from "next-auth/react";
 "use server"
-import {PrismaClient, songs} from '@prisma/client'
+import {PrismaClient/*, songs*/} from '@prisma/client'
 export default async function OwnList(username:any)
 {
     //username="username";
