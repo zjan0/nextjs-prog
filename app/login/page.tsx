@@ -42,6 +42,7 @@ const onSubmit=async()=>{
     {
         //await signIn("credentials",{username,password})
         //console.log(username,password);
+        try{
         await signIn("credentials",{username,password})
         /*if(rightinfo)
         {
@@ -49,6 +50,10 @@ const onSubmit=async()=>{
         }
         else{session?.expires}*/
         setError("right info");
+        }
+        catch{
+            setError("wrong credentials");
+        }
     }
 }
 return <form method="get">
