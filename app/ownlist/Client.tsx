@@ -5,7 +5,14 @@ import OwnList from "./OwnList";
 import { useEffect, useState } from "react";
 /*export default async*/ function Client()
 {
-    const[val,setValue]=useState("")
+    const[val,setValue]=useState<{
+    _count: { likaccounts: number };
+    id: bigint;
+    created_at: Date;
+    song_name: string;
+    song_author: string;
+    song_type: string;
+  }[]>([]);
     const{data: session}=useSession();
     /*const username=session?.user?.name;
     const data=OwnList(username);
