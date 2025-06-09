@@ -18,6 +18,8 @@ export default function Favorites({ val }: FavoritesProps)
   //console.log(val);
   //const {value}=val;
   //console.log(value);
+  let favvalue="add";
+  let likevalue="add";
   const[isfavnull,setfavNull]=useState("")
   const[islikenull,setlikeNull]=useState("")
   const{data: session}=useSession();
@@ -33,8 +35,18 @@ export default function Favorites({ val }: FavoritesProps)
           (async()=>{
             const isfavitnull=await Isfavnull(val,username);
             const islikeitnull=await Islikenull(val,username);
-            setfavNull(isfavitnull);
-            setlikeNull(islikeitnull);
+            if(isfavnull!=null)
+            {
+              favvalue="remove";
+              setfavNull(isfavitnull?.song_name??"");
+            }
+            if(islikenull!=null)
+            {
+              likevalue="remove";
+              setlikeNull(islikeitnull?.song_name??"");
+            }
+            //setfavNull(isfavitnull.song_name);
+            //setlikeNull(islikeitnull);
           })()
         },[])
   /*const username=session?.user?.name;
@@ -53,7 +65,7 @@ export default function Favorites({ val }: FavoritesProps)
   <div onClick={()=>FavoriteClick()}>add Favorites</div>
   <div onClick={()=>LikeClick()}>add Likes</div>
   </>*/
-  let favvalue="remove";
+  /*let favvalue="remove";
   let likevalue="remove";
   if(isfavnull==null)
   {
@@ -62,7 +74,7 @@ export default function Favorites({ val }: FavoritesProps)
   if(islikenull==null)
   {
     likevalue="add";
-  }
+  }*/
   return<>
   <div onClick={()=>FavoriteClick()}>{favvalue} Favorites</div>
   <div onClick={()=>LikeClick()}>{likevalue} Likes</div>
