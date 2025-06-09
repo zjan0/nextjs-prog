@@ -1,6 +1,9 @@
 "use server"
 import{PrismaClient} from '@prisma/client'
-export async function addLikes(val:string,username:any)
+/*type FavoritesProps = {
+  username: string;  // val can be string or undefined (if it might be missing)
+};*/
+export async function addLikes(val:string, username : string)
 {
     const prisma=new PrismaClient();
     const value=await prisma.songs.findFirst({where:{song_name:val,likaccounts:{some:{account_username: username}}}});//session?.user?.name

@@ -3,8 +3,10 @@ import {useSession} from "next-auth/react";
 import {addFavorites, Isfavnull} from "./AddFavorites"
 import { useEffect, useState } from "react";
 import {addLikes,Islikenull} from "./AddLike"
-
-export default function Favorites(value:any)
+type FavoritesProps = {
+  val: string;  // val can be string or undefined (if it might be missing)
+};
+export default function Favorites({ val }: FavoritesProps)
 {  
   //authprovider.getIdentity
   //NextAuthSessionProvider.name;
@@ -19,9 +21,14 @@ export default function Favorites(value:any)
   const[isfavnull,setfavNull]=useState("")
   const[islikenull,setlikeNull]=useState("")
   const{data: session}=useSession();
-  const username=session?.user?.name;
-  
-  const {val}=value;
+  let username="";
+  if(session?.user?.name!=null)
+  {
+  username=session?.user?.name;
+  }
+  //const {val}=value;
+  console.log("testing");
+  console.log(val);
   useEffect(()=>{
           (async()=>{
             const isfavitnull=await Isfavnull(val,username);

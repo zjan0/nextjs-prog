@@ -1,7 +1,7 @@
 "use server"
 import{PrismaClient} from '@prisma/client'
 //import {useSession} from "next-auth/react";
-export async function addFavorites(val:string,username:any)
+export async function addFavorites(val:string,username:string)
 {
     //const{data: session}=useSession();
     const prisma=new PrismaClient();

@@ -12,7 +12,11 @@ import { useEffect, useState } from "react";
     console.log(data);*/
     useEffect(()=>{
         (async()=>{
-const username=session?.user?.name;
+let username="";
+  if(session?.user?.name!=null)
+  {
+  username=session?.user?.name;
+  }
     const data=await OwnList(username);
     setValue(data);
     //console.log(data);
