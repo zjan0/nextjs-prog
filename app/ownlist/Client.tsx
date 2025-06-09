@@ -1,4 +1,4 @@
-//"use server"
+//"use server" 
 "use client"
 import {useSession} from "next-auth/react";
 import OwnList from "./OwnList";
