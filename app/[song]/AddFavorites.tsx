@@ -39,7 +39,7 @@ export async function addFavorites(val:string,username:string)
             ,where:{song_name:val}
         })*/
 }
-export async function Isfavnull(val:string,username:any)
+export async function Isfavnull(val:string,username:string)
 {
     const prisma=new PrismaClient();
     const value=await prisma.songs.findFirst({where:{song_name:val,accounts:{some:{account_username: username}}}});

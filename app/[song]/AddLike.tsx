@@ -32,7 +32,7 @@ export async function addLikes(val:string, username : string)
         })
     }
 }
-export async function Islikenull(val:string,username:any)
+export async function Islikenull(val:string,username:string)
 {
     const prisma=new PrismaClient();
     //const value="";
