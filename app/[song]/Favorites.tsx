@@ -18,8 +18,8 @@ export default function Favorites({ val }: FavoritesProps)
   //console.log(val);
   //const {value}=val;
   //console.log(value);
-  let favvalue="add";
-  let likevalue="add";
+  let favvalue="remove";
+  let likevalue="remove";
   const[isfavnull,setfavNull]=useState("")
   const[islikenull,setlikeNull]=useState("")
   const{data: session}=useSession();
@@ -37,12 +37,13 @@ export default function Favorites({ val }: FavoritesProps)
             const islikeitnull=await Islikenull(val,username);
             if(isfavnull!=null)
             {
-              favvalue="remove";
+              //favvalue="remove";
               setfavNull(isfavitnull?.song_name??"");
             }
+            //else{setfavNull("");}
             if(islikenull!=null)
             {
-              likevalue="remove";
+              //likevalue="remove";
               setlikeNull(islikeitnull?.song_name??"");
             }
             //setfavNull(isfavitnull.song_name);
@@ -59,6 +60,14 @@ export default function Favorites({ val }: FavoritesProps)
   console.log(isnull);
   }
   Something();*/
+  if(isfavnull=="")
+  {
+    favvalue="add";
+  }
+  if(islikenull=="")
+  {
+    likevalue="add";
+  }
   const FavoriteClick=()=>{addFavorites(val,username)}
   const LikeClick=()=>{addLikes(val,username)}
   /*return<>
