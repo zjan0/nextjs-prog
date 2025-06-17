@@ -45,7 +45,7 @@ const onSubmit=async()=>{
         //await signIn("credentials",{username,password})
         //console.log(username,password);
         try{
-        const suc=await signIn("credentials",{username,password,redirect:false});
+        const suc=await signIn("credentials",{username,password});
         if(suc!.error)
         {
             setError("wrong credentials");
