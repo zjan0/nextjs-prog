@@ -7,7 +7,7 @@ type FavoritesProps = {
   val: string;  // val can be string or undefined (if it might be missing)
 };
 export default function Favorites({ val }: FavoritesProps)
-{  
+{
   //authprovider.getIdentity
   //NextAuthSessionProvider.name;
   //const{data:session}=getSession();
@@ -18,8 +18,9 @@ export default function Favorites({ val }: FavoritesProps)
   //console.log(val);
   //const {value}=val;
   //console.log(value);
-  let favvalue="remove";
-  let likevalue="remove";
+  const[loaded,SetLoaded]=useState("")
+  let favvalue="Loading";
+  let likevalue="Loading";
   const[isfavnull,setfavNull]=useState("")
   const[islikenull,setlikeNull]=useState("")
   const{data: session}=useSession();
@@ -46,6 +47,7 @@ export default function Favorites({ val }: FavoritesProps)
               //likevalue="remove";
               setlikeNull(islikeitnull?.song_name??"");
             }
+            SetLoaded("Loaded");
             //setfavNull(isfavitnull.song_name);
             //setlikeNull(islikeitnull);
           })()
@@ -62,14 +64,30 @@ export default function Favorites({ val }: FavoritesProps)
   Something();*/
   if(isfavnull=="")
   {
-    favvalue="add";
+    favvalue="add Favorites";
   }
+  else{favvalue="remove Favorites";}
   if(islikenull=="")
   {
-    likevalue="add";
+    likevalue="add Likes";
   }
+  else{likevalue="remove Likes";}
   const FavoriteClick=()=>{addFavorites(val,username)}
   const LikeClick=()=>{addLikes(val,username)}
+  if(!session)
+      {
+          return<>
+          <div>Sign in to add and remove likes and favorites</div>
+          </>
+      }
+    if(loaded!="Loaded")
+    {
+        return<><div>Loading</div></>
+    }
+  return<>
+  <div onClick={()=>FavoriteClick()}>{favvalue}</div>
+  <div onClick={()=>LikeClick()}>{likevalue}</div>
+  </>
   /*return<>
   <div onClick={()=>FavoriteClick()}>add Favorites</div>
   <div onClick={()=>LikeClick()}>add Likes</div>
@@ -84,10 +102,7 @@ export default function Favorites({ val }: FavoritesProps)
   {
     likevalue="add";
   }*/
-  return<>
-  <div onClick={()=>FavoriteClick()}>{favvalue} Favorites</div>
-  <div onClick={()=>LikeClick()}>{likevalue} Likes</div>
-  </>
+  
   /*if(isfavnull==null)
   {
     if(islikenull==null)

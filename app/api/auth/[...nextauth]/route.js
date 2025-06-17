@@ -30,6 +30,7 @@ const authOptions=
         }
           return user;*/
         console.log(user);
+        
         if(matchingpassword&&user)
         {
           return user;

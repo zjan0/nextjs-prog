@@ -3,8 +3,10 @@
 import {useSession} from "next-auth/react";
 import OwnList from "./OwnList";
 import { useEffect, useState } from "react";
+import { redirect } from "next/navigation";
 /*export default async*/ function Client()
 {
+    const[loaded,SetLoaded]=useState("")
     const[val,setValue]=useState<{
     _count: { likaccounts: number };
     id: bigint;
@@ -26,6 +28,7 @@ let username="";
   }
     const data=await OwnList(username);
     setValue(data);
+    SetLoaded("Loaded");
     //console.log(data);
         })()
 /*const username=session?.user?.name;
@@ -36,6 +39,14 @@ let username="";
     },[])
     
     //return<></>
+    if(!session)
+    {
+        redirect("../login");
+    }
+    if(loaded!="Loaded")
+    {
+        return<><div>Loading</div></>
+    }
     return<>
     {val.length === 0 && <strong>song list is empty</strong>}
         {val.length > 0 && <ul>

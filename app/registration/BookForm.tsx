@@ -1,8 +1,11 @@
 "use client"
 import {useState} from "react";
 import{registrate} from "../registrate/registrate";
+import { redirect } from "next/navigation";
+import { useSession } from "next-auth/react";
 export default function BookForm()
 {
+    const{data: session}=useSession();
     const[username,SetUsername]=useState("")
     const[password,SetPassword]=useState("")
     const[error,setError]=useState("")
@@ -20,6 +23,10 @@ const onSubmit=()=>{
     }
 
 }
+if(session)
+    {
+        redirect("../");
+    }
 return <form method="get">
     <div>
         <label>username</label>

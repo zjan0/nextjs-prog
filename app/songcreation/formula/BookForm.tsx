@@ -1,8 +1,11 @@
 "use client"
 import { useState } from "react"
 import { creation } from "../creation/creation"
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function BookForm () {
+    const{data: session}=useSession();
 
     const [name,setName]=useState("")
     const [author,setAuthor]=useState("")
@@ -13,7 +16,10 @@ const onSubmit=()=>{
     creation(name,author,type)
     return
 }
-
+if(!session)
+    {
+        redirect("../login");
+    }
 return  <form method="get">
 <div>
     <label>song name</label>

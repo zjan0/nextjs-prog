@@ -27,9 +27,11 @@
 }*/
 "use client"
 import {useState} from "react";
-import {signIn} from "next-auth/react";
+import {signIn, useSession} from "next-auth/react";
+import { redirect } from "next/navigation";
 export default function Login()
 {
+    const{data: session}=useSession();
     const[username,SetUsername]=useState("")
     const[password,SetPassword]=useState("")
     const[error,setError]=useState("")
@@ -43,7 +45,13 @@ const onSubmit=async()=>{
         //await signIn("credentials",{username,password})
         //console.log(username,password);
         try{
-        await signIn("credentials",{username,password})
+        const suc=await signIn("credentials",{username,password,redirect:false});
+        if(suc!.error)
+        {
+            setError("wrong credentials");
+            return;
+        }
+        //if(suc.error)
         /*if(rightinfo)
         {
             session?.user;
@@ -52,10 +60,14 @@ const onSubmit=async()=>{
         setError("right info");
         }
         catch{
-            setError("wrong credentials");
+            setError("error");
         }
     }
 }
+if(session)
+    {
+        redirect("../");
+    }
 return <form method="get">
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
     <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
